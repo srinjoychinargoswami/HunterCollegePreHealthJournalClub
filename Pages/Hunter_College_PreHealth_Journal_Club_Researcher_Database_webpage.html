@@ -23,6 +23,7 @@
 	<div class="database-info"><center><p>This webpage consists of a database of Principal Investigators at Hunter College and at other research institutions in New York City who have either taken Hunter College Students in their labs in the past or have current students in their labs. There are other PI's on this list who have taken undergraduate students from other colleges in the past, have a higher chance of responding to students, or provide openly available resources that if completed, will make students better candidates for those laboratory positions.</p></center>
 	</div>
 	
+	<input type="text" id="input" function="myFunction()" placeholder="Search for PI,Institution"
 	<table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
 <caption></caption>
 <thead>
@@ -48,9 +49,9 @@
             <td data-label="Clinical or Lab Research">Clinical </td>
             <td data-label="Department">Endocrinology</td>
             <td data-label="PI Name">Dr. Meredith Hawkins</td>
-            <td data-label="PI Email">meredith.hawkins@einsteinmed.org/tulsi.patel@einsteinmed.org</td>
+            <td data-label="PI Email"><a href="meredith.hawkins@einsteinmed.org/tulsi.patel@einsteinmed.org</td>
             <td data-label="Lab Phone Number">(718) 430 3186</td>
-            <td data-label="Lab Website">https://www.einstein.yu.edu/faculty/1982/meredith-hawkins/</td>
+            <td data-label="Lab Website"><a href="https://www.einstein.yu.edu/faculty/1982/meredith-hawkins/">Website</td>
             <td data-label="Any Hunter Undergraduates Present ">No</td>
             <td data-label="PI office location ">1300 Morris Park Ave, Belfer Building, Room 709 Bronx, NY 10461</td>
             <td data-label=""></td>
@@ -1684,7 +1685,32 @@
 
 </style>			
 			
-	    
+<script> 
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+		    </script>
+		    
+		    
+		    
 	    
 	    
 	    
